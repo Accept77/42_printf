@@ -5,8 +5,8 @@
 #                                                     +:+ +:+         +:+      #
 #    By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2022/11/22 17:31:22 by jinsyang          #+#    #+#              #
-#    Updated: 2022/12/12 19:55:45 by jinsyang         ###   ########.fr        #
+#    Created: 2022/12/12 20:00:00 by jinsyang          #+#    #+#              #
+#    Updated: 2022/12/12 20:02:07 by jinsyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,9 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_M : ft_hex.c ft_printaddress.c ft_printchar.c ft_printf.c ft_printnbr.c ft_printstr.c ft_printunsigned.c ft_strlen.c ft_toupper.c
+SRC_M = ft_hex.c ft_printaddress.c ft_printchar.c ft_printf.c ft_printnbr.c ft_printstr.c ft_printunsigned.c ft_strlen.c ft_toupper.c
 
-SRC_B = 
+SRC_B =
 
 OBJ_M = $(SRC_M:.c=.o)
 
