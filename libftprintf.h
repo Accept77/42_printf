@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 18:30:17 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:47:34 by jinsyang         ###   ########.fr       */
+/*   Updated: 2022/12/12 17:20:28 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include <stdlib.h>
 # include <unistd.h>
 
+int		ft_printf(const char *str, ...);
 int		ft_printchar(char c);
 int		ft_printstr(char *s);
 int		ft_printnbr(int n);
