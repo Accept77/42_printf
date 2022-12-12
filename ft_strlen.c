@@ -1,28 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_strlen.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 18:30:17 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:47:34 by jinsyang         ###   ########.fr       */
+/*   Created: 2022/11/09 17:32:00 by jinsyang          #+#    #+#             */
+/*   Updated: 2022/12/12 16:08:51 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
+#include "libftprintf.h"
 
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
+size_t	ft_strlen(const char *str)
+{
+	size_t	count;
 
-int		ft_printchar(char c);
-int		ft_printstr(char *s);
-int		ft_printnbr(int n);
-size_t	ft_strlen(const char *str);
-int		ft_hex(unsigned int i, int flag);
-int		ft_toupper(int c);
-int		ft_printunsigned(unsigned int n);
-int		ft_printaddress(void *addr);
-#endif
+	count = 0;
+	while (str[count])
+		count++;
+	return (count);
+}

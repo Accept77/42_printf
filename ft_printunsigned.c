@@ -1,31 +1,48 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   ft_printunsigned.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 13:33:54 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:59:41 by jinsyang         ###   ########.fr       */
+/*   Created: 2022/12/12 16:22:40 by jinsyang          #+#    #+#             */
+/*   Updated: 2022/12/12 16:26:20 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
 
-int ft_printf(const char *str, ...)
+static int	numprint(unsigned int n)
 {
-	va_list lst;
+	char	p[11];
 	int		count;
-	int		i;
 
 	count = 0;
-	i = 0;
-
-	if (str[i] == '%')
+	while (n != 0)
 	{
+		p[count] = n % 10 + '0';
+		n /= 10;
+		count++;
 	}
-	va_start(lst,str);
-	va_arg(lst, int);
-	va_end(lst);
-	return (1);
+	p[count] = '\0';
+	--count;
+	while (count >= 0)
+	{
+		write(1, &p[count], 1);
+		count--;
+	}
+	return (ft_strlen(p));
+}
+
+int	ft_printunsigned(unsigned int n)
+{
+	int	count;
+
+	if (n == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	count = numprint(n);
+	return (count);
 }

@@ -1,28 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   libftprintf.h                                      :+:      :+:    :+:   */
+/*   ft_toupper.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/08 18:30:17 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:47:34 by jinsyang         ###   ########.fr       */
+/*   Created: 2022/11/15 12:18:08 by jinsyang          #+#    #+#             */
+/*   Updated: 2022/11/15 12:31:13 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef LIBFTPRINTF_H
-# define LIBFTPRINTF_H
-
-# include <stdarg.h>
-# include <stdlib.h>
-# include <unistd.h>
-
-int		ft_printchar(char c);
-int		ft_printstr(char *s);
-int		ft_printnbr(int n);
-size_t	ft_strlen(const char *str);
-int		ft_hex(unsigned int i, int flag);
-int		ft_toupper(int c);
-int		ft_printunsigned(unsigned int n);
-int		ft_printaddress(void *addr);
-#endif
+int	ft_toupper(int c)
+{
+	if (c >= 97 && c <= 122)
+		c -= 32;
+	return (c);
+}
