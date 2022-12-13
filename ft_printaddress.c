@@ -6,11 +6,36 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:54:51 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:55:16 by jinsyang         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:28:12 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libftprintf.h"
+
+static int	ft_turn_hex(unsigned long long i)
+{
+	const char	*hex;
+	char		p[17];
+	int			count;
+
+	hex = "0123456789abcdef";
+	count = 0;
+	if (i == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
+	while (i != 0)
+	{
+		p[count] = hex[i % 16];
+		i /= 16;
+		count++;
+	}
+	p[count] = '\0';
+	while (--count >= 0)
+		write(1, &p[count], 1);
+	return (ft_strlen(p));
+}
 
 int	ft_printaddress(void *addr)
 {
@@ -19,8 +44,8 @@ int	ft_printaddress(void *addr)
 
 	count = 0;
 	i = (unsigned long long)addr;
-	write(1, "0x10", 4);
-	count = ft_hex(i, 0);
-	count += 4;
+	write(1, "0x", 2);
+	count = ft_turn_hex(i);
+	count += 2;
 	return (count);
 }

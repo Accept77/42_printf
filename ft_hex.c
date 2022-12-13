@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:28:15 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:22:08 by jinsyang         ###   ########.fr       */
+/*   Updated: 2022/12/13 15:21:28 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,11 @@ int	ft_hex(unsigned int i, int flag)
 
 	hex = "0123456789abcdef";
 	count = 0;
+	if (i == 0)
+	{
+		write(1, "0", 1);
+		return (1);
+	}
 	while (i != 0)
 	{
 		p[count] = hex[i % 16];
@@ -39,13 +44,9 @@ int	ft_hex(unsigned int i, int flag)
 		count++;
 	}
 	p[count] = '\0';
-	--count;
 	if (flag == 1)
 		ft_upper(p);
-	while (count >= 0)
-	{
+	while (--count >= 0)
 		write(1, &p[count], 1);
-		count--;
-	}
 	return (ft_strlen(p));
 }

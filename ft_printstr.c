@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:13:03 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 15:36:06 by jinsyang         ###   ########.fr       */
+/*   Updated: 2022/12/13 13:48:59 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,18 @@
 
 int	ft_printstr(char *s)
 {
-	write(1, s, ft_strlen(s));
-	return (ft_strlen(s));
+	int	i;
+
+	i = 0;
+	if (s == NULL)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+	while (s[i])
+	{
+		ft_printchar(s[i]);
+		i++;
+	}
+	return (i);
 }
