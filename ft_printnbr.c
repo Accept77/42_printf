@@ -6,11 +6,11 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:11:24 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 16:11:10 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:49:25 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	numprint(int n, int flag)
 {

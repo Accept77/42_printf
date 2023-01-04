@@ -6,11 +6,11 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:28:15 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/13 15:21:28 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:48:45 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static void	ft_upper(char *p)
 {

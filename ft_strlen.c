@@ -6,11 +6,11 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/09 17:32:00 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/13 11:48:26 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:49:40 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 size_t	ft_strlen(const char *str)
 {

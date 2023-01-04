@@ -1,31 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printstr.c                                      :+:      :+:    :+:   */
+/*   ft_printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:13:03 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/01/04 17:49:17 by jinsyang         ###   ########.fr       */
+/*   Created: 2022/12/08 18:30:17 by jinsyang          #+#    #+#             */
+/*   Updated: 2023/01/04 17:48:29 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#ifndef FT_PRINTF_H
+# define FT_PRINTF_H
 
-int	ft_printstr(char *s)
-{
-	int	i;
+# include <stdarg.h>
+# include <stdlib.h>
+# include <unistd.h>
 
-	i = 0;
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		return (6);
-	}
-	while (s[i])
-	{
-		ft_printchar(s[i]);
-		i++;
-	}
-	return (i);
-}
+int		ft_printf(const char *str, ...);
+int		ft_printchar(char c);
+int		ft_printstr(char *s);
+int		ft_printnbr(int n);
+size_t	ft_strlen(const char *str);
+int		ft_hex(unsigned int i, int flag);
+int		ft_toupper(int c);
+int		ft_printunsigned(unsigned int n);
+int		ft_printaddress(void *addr);
+#endif

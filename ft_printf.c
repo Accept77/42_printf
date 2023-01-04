@@ -6,11 +6,11 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 13:33:54 by jinsyang          #+#    #+#             */
-/*   Updated: 2022/12/12 19:49:20 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/01/04 17:49:10 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libftprintf.h"
+#include "ft_printf.h"
 
 static int	ft_print_what(va_list lst, int i, const char *str)
 {
@@ -41,14 +41,14 @@ static int	ft_print_what(va_list lst, int i, const char *str)
 
 int	ft_printf(const char *str, ...)
 {
-	va_list	lst;
-	int		count;
-	int		i;
+	va_list			lst;
+	unsigned int	count;
+	int				i;
 
 	count = 0;
-	i = 0;
+	i = -1;
 	va_start(lst, str);
-	while (str[i])
+	while (str[++i])
 	{
 		if (str[i] == '%')
 		{
@@ -60,8 +60,10 @@ int	ft_printf(const char *str, ...)
 			write(1, &str[i], 1);
 			count++;
 		}
-		i++;
 	}
 	va_end(lst);
-	return (count);
+	if (count <= 2147483647)
+		return (count);
+	else
+		return (-1);
 }
