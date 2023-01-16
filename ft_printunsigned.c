@@ -6,13 +6,13 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 16:22:40 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/01/04 17:49:34 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:31:57 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-static int	numprint(unsigned int n)
+static int	numprint(unsigned int n, int *flag)
 {
 	char	p[11];
 	int		count;
@@ -28,21 +28,23 @@ static int	numprint(unsigned int n)
 	--count;
 	while (count >= 0)
 	{
-		write(1, &p[count], 1);
+		*flag = write(1, &p[count], 1);
+		if (*flag == -1)
+			break ;
 		count--;
 	}
 	return (ft_strlen(p));
 }
 
-int	ft_printunsigned(unsigned int n)
+int	ft_printunsigned(unsigned int n, int *flag)
 {
 	int	count;
 
 	if (n == 0)
 	{
-		write(1, "0", 1);
+		*flag = write(1, "0", 1);
 		return (1);
 	}
-	count = numprint(n);
+	count = numprint(n, flag);
 	return (count);
 }

@@ -6,14 +6,14 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/12 13:08:46 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/01/04 17:49:01 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/01/16 18:21:10 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_printchar(char c)
+int	ft_printchar(char c, int *flag)
 {
-	write(1, &c, 1);
+	*flag = write(1, &c, 1);
 	return (1);
 }
