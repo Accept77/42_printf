@@ -1,16 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printnbr.c                                      :+:      :+:    :+:   */
+/*   ft_printf_nbr.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/12 13:11:24 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/01/16 18:46:09 by jinsyang         ###   ########.fr       */
+/*   Created: 2023/02/26 13:09:14 by jinsyang          #+#    #+#             */
+/*   Updated: 2023/02/26 13:27:12 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+
+static int	unsigned_numprint(unsigned int n, int *flag)
+{
+	char	p[11];
+	int		count;
+
+	count = 0;
+	while (n != 0)
+	{
+		p[count] = n % 10 + '0';
+		n /= 10;
+		count++;
+	}
+	p[count] = '\0';
+	--count;
+	while (count >= 0)
+	{
+		*flag = write(1, &p[count], 1);
+		if (*flag == -1)
+			break ;
+		count--;
+	}
+	return (ft_strlen(p));
+}
 
 static int	numprint(int n, int flag2, int *flag)
 {
@@ -68,4 +92,46 @@ int	ft_printnbr(int n, int *flag)
 	}
 	count = numprint(n, flag2, flag);
 	return (count);
+}
+
+int	ft_printunsigned(unsigned int n, int *flag)
+{
+	int	count;
+
+	if (n == 0)
+	{
+		*flag = write(1, "0", 1);
+		return (1);
+	}
+	count = unsigned_numprint(n, flag);
+	return (count);
+}
+
+int	ft_hex(unsigned int i, int flag2, int *flag, const char *hex)
+{
+	char		p[9];
+	int			count;
+
+	count = 0;
+	if (i == 0)
+	{
+		*flag = write(1, "0", 1);
+		return (1);
+	}
+	while (i != 0)
+	{
+		p[count] = hex[i % 16];
+		i /= 16;
+		count++;
+	}
+	p[count] = '\0';
+	if (flag2 == 1)
+		ft_upper(p);
+	while (--count >= 0)
+	{
+		*flag = write(1, &p[count], 1);
+		if (*flag == -1)
+			break ;
+	}
+	return (ft_strlen(p));
 }

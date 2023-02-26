@@ -6,7 +6,7 @@
 #    By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/12/12 20:00:00 by jinsyang          #+#    #+#              #
-#    Updated: 2023/01/04 17:50:53 by jinsyang         ###   ########.fr        #
+#    Updated: 2023/02/26 13:19:47 by jinsyang         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,7 @@ CC = cc
 
 CFLAGS = -Wall -Wextra -Werror
 
-SRC_M = ft_hex.c ft_printaddress.c ft_printchar.c ft_printf.c ft_printnbr.c ft_printstr.c ft_printunsigned.c ft_strlen.c ft_toupper.c
+SRC_M = ft_printaddress.c ft_printf_char.c ft_printf.c ft_printf_nbr.c
 
 OBJ_M = $(SRC_M:.c=.o)
 
