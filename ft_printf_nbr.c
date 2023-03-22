@@ -6,7 +6,7 @@
 /*   By: jinsyang <jinsyang@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 13:09:14 by jinsyang          #+#    #+#             */
-/*   Updated: 2023/02/26 13:27:12 by jinsyang         ###   ########.fr       */
+/*   Updated: 2023/03/22 18:56:29 by jinsyang         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	unsigned_numprint(unsigned int n, int *flag)
 	return (ft_strlen(p));
 }
 
-static int	numprint(int n, int flag2, int *flag)
+static int	numprint(int n, int what, int *flag)
 {
 	char	p[11];
 	int		count;
@@ -50,7 +50,7 @@ static int	numprint(int n, int flag2, int *flag)
 	}
 	p[count] = '\0';
 	--count;
-	if (flag2 == 1)
+	if (what == 1)
 		p[0]++;
 	while (count >= 0)
 	{
@@ -59,7 +59,7 @@ static int	numprint(int n, int flag2, int *flag)
 			break ;
 		count--;
 	}
-	if (flag2 > 0)
+	if (what > 0)
 		return (ft_strlen(p) + 1);
 	else
 		return (ft_strlen(p));
@@ -67,10 +67,10 @@ static int	numprint(int n, int flag2, int *flag)
 
 int	ft_printnbr(int n, int *flag)
 {
-	int	flag2;
+	int	what;
 	int	count;
 
-	flag2 = 0;
+	what = 0;
 	if (n == 0)
 	{
 		*flag = write(1, "0", 1);
@@ -78,19 +78,19 @@ int	ft_printnbr(int n, int *flag)
 	}
 	else if (n == -2147483648)
 	{
-		flag2++;
+		what++;
 		n++;
 	}
 	else if (0 > n && n > -2147483648)
-		flag2 = 2;
-	if (flag2 > 0)
+		what = 2;
+	if (what > 0)
 	{
 		n *= -1;
 		*flag = write(1, "-", 1);
 		if (*flag == -1)
 			return (0);
 	}
-	count = numprint(n, flag2, flag);
+	count = numprint(n, what, flag);
 	return (count);
 }
 
@@ -107,7 +107,7 @@ int	ft_printunsigned(unsigned int n, int *flag)
 	return (count);
 }
 
-int	ft_hex(unsigned int i, int flag2, int *flag, const char *hex)
+int	ft_hex(unsigned int i, int what, int *flag, const char *hex)
 {
 	char		p[9];
 	int			count;
@@ -125,7 +125,7 @@ int	ft_hex(unsigned int i, int flag2, int *flag, const char *hex)
 		count++;
 	}
 	p[count] = '\0';
-	if (flag2 == 1)
+	if (what == 1)
 		ft_upper(p);
 	while (--count >= 0)
 	{
